@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<title>Learningzzz</title>
+
+<style>
+
+  *
+  {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  ul
+  {
+    margin-left: 30px;
+  }
+
+  body
+  {
+    padding: 10px;
+    font-family:"Lucida Grande","Trebuchet MS","Tahoma","Verdana","sans-serif";
+  }
+</style>
+
+<h1>Learningzzz</h1>
+<br/>
+<ul id="topics-links-list">
+{% for item in topicsLinksList %}
+  {% if item.link == "#" %}
+    <li><a target="_blank" href="http://www.google.com/search?q={{item.topic}}">{{item.topic}}</a></li>
+  {% else %}
+    <li><a target="_blank" href="{{item.link}}">{{item.topic}}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
