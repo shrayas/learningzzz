@@ -39,8 +39,15 @@ def listLearningzzz():
     return render_template('learningzzz.html',topicsLinksList=topicsLinksList)
 
 if __name__ == "__main__":
-    app.run(
-            debug=True,
-            port=5000,
-            host="0.0.0.0"
-            )
+
+    if not os.path.isfile("config.ini"):
+        print "No config file set. FATAL"
+        exit(1)
+
+    config = ConfigParser.RawConfigParser()
+    config.read("config.ini")
+
+    debug = config.getboolean("server_details","debug")
+    port = config.getint("server_details","port")
+
+    app.run(debug=debug, port=port, host="0.0.0.0")
