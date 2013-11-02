@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import gspread
 import ConfigParser
+import os.path
 
 app = Flask(__name__)
 
@@ -10,6 +11,9 @@ def hello():
 
 @app.route("/z")
 def listLearningzzz():
+
+    if not os.path.isfile("config.ini"):
+        return "No config file set. FATAL"
 
     config = ConfigParser.RawConfigParser()
     config.read("config.ini")
