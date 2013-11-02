@@ -6,10 +6,6 @@ import os.path
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "yo"
-
-@app.route("/z")
 def listLearningzzz():
 
     if not os.path.isfile("config.ini"):
